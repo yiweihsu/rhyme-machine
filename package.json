@@ -1,18 +1,13 @@
 {
-  "name": "rm",
+  "name": "rhyme-machine",
   "version": "1.0.0",
-  "description": "",
+  "description": "rhyme machine studio",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "repository": "https://github.com/yiweihsu/rhyme-machine.git",
+  "author": "Yi-Wei Hsu <yiweihsutw@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "axios": "^0.17.1",
-    "express": "^4.16.2",
     "pinyin": "^2.8.3",
-    "request": "^2.83.0"
+    "request": "^2.88.0"
   }
 }
