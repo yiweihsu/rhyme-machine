@@ -6,6 +6,7 @@
 - offer different tone rhymes options
 - rename the variable name to make it more readable 
 - error handler
+- make a new branch for refactor
 
 
 ### Usage 
