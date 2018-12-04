@@ -1,8 +1,14 @@
 {
   "name": "rhyme-machine",
   "version": "1.0.0",
-  "description": "rhyme machine studio",
+  "description": "to help rappers have a easier rhyme life",
   "main": "index.js",
+  "scripts": {
+    "devServer": "node index.js",
+    "lint": "eslint src test",
+    "test": "",
+    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
+  },
   "repository": "https://github.com/yiweihsu/rhyme-machine.git",
   "author": "Yi-Wei Hsu <yiweihsutw@gmail.com>",
   "license": "MIT",

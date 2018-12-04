@@ -84,9 +84,8 @@ function rmSearch(arr) {
   });
 }
 
-// 初始化設定
-const input = '神經病';
-let word = transferPinyin(input);
-// console.log(word);
-groups = getGroups(word);
-rmSearch(groups);
+module.exports = (rhymeWords) => {
+  let word = transferPinyin(rhymeWords);
+  groups = getGroups(word);
+  return (rmSearch(groups));
+};
