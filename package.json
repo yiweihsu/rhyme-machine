@@ -2,16 +2,19 @@
   "name": "rhyme-machine",
   "version": "1.0.0",
   "description": "to help rappers have a easier rhyme life",
-  "main": "index.js",
-  "scripts": {
-    "devServer": "node index.js",
-    "lint": "eslint src test",
-    "test": "",
-    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yiweihsu/rhyme-machine.git"
   },
-  "repository": "https://github.com/yiweihsu/rhyme-machine.git",
   "author": "Yi-Wei Hsu <yiweihsutw@gmail.com>",
   "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src test",
+    "prepublish": "npm run clean && npm run lint && npm run test && npm run build",
+    "start": "node index.js"
+  },
   "dependencies": {
     "pinyin": "^2.8.3",
     "request": "^2.88.0"
