@@ -3,7 +3,7 @@ const request = require('request');
 
 // 被爬爆了，改成local
 const DICT =
-	'https://raw.githubusercontent.com/yiweihsu/rhyme-machine/master/phrase';
+	'https://raw.githubusercontent.com/yiweihsu/rhyme-machine/master/dict/phrase';
 
 const pinyin = require('pinyin');
 
