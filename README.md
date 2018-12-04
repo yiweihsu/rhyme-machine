@@ -20,6 +20,7 @@ https://raw.githubusercontent.com/lqj679ssn/Hiphop/master/Init/phrase
 
 ### TODO
 
+- Setup Express Environment
 - 清理字典重複字詞
 - 繁簡轉換
 - 限制至少搜尋兩個字以上
