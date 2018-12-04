@@ -3,6 +3,9 @@
 - test
 - request aysnc way
 - dictionary saved as local file
+- offer different tone rhymes options
+- rename the variable name to make it more readable 
+- error handler
 
 
 ### Usage 
