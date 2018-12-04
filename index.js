@@ -1,4 +1,4 @@
-const CLUSTER = require('./cluster');
+const CLUSTER = require('./dict/cluster');
 const request = require('request');
 const DICT =
   'https://raw.githubusercontent.com/yiweihsu/rhyme-machine/master/phrase';
@@ -13,37 +13,32 @@ function transferPinyin(word) {
   return pinyinWord;
 }
 
-// 抓出搜尋字詞的群組
 function getGroups(word) {
-  let obj = {};
   let arr = [];
 
-  // 1. get the separated word
-  let rhy1Str = word[word.length - 1].join(); // 最後一個字
-  let rhy2Str = word[word.length - 2].join(); // 倒數第二個字
-  let rhy3Str;
+  let last1Str = word[word.length - 1].join(); // 最後一個字
+  let last2Str = word[word.length - 2].join(); // 倒數第二個字
+  let last3Str; // 倒數第三個字
+  
   if (word.length > 2) {
-    rhy3Str = word[word.length - 3].join(); // 倒數第三個字
+    last3Str = word[word.length - 3].join(); 
   }
 
-  // 2. check if the word belong to the group
+  // check if the word belong to the group
   for (let group in CLUSTER) {
-    if (CLUSTER[group].includes(rhy1Str)) {
-      obj['rhy1Group'] = group;
+    if (CLUSTER[group].includes(last1Str)) {
       arr['0'] = group;
     }
-    if (CLUSTER[group].includes(rhy2Str)) {
-      obj['rhy2Group'] = group;
+    if (CLUSTER[group].includes(last2Str)) {
       arr['1'] = group;
     }
-
     if (word.length > 2) {
-      if (CLUSTER[group].includes(rhy3Str)) {
-        obj['rhy3Group'] = group;
+      if (CLUSTER[group].includes(last3Str)) {
         arr['2'] = group;
       }
     }
   }
+
   return arr;
 }
 
@@ -84,8 +79,17 @@ function rmSearch(arr) {
   });
 }
 
+function localSearch(rhymeWords) {
+  let word = transferPinyin(rhymeWords);
+  groups = getGroups(word);
+  return (rmSearch(groups));
+}
+
+localSearch('搞事情');
+
 module.exports = (rhymeWords) => {
   let word = transferPinyin(rhymeWords);
   groups = getGroups(word);
   return (rmSearch(groups));
 };
+
