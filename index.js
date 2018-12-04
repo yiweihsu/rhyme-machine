@@ -42,6 +42,7 @@ function getGroups(word) {
   return arr;
 }
 
+// TODO async fetch, and return as json format
 function rmSearch(arr) {
   let len = arr.length;
   request(DICT, function(error, response, body) {
@@ -79,6 +80,12 @@ function rmSearch(arr) {
   });
 }
 
+module.exports = (rhymeWords) => {
+  let word = transferPinyin(rhymeWords);
+  groups = getGroups(word);
+  return (rmSearch(groups));
+};
+
 function localSearch(rhymeWords) {
   let word = transferPinyin(rhymeWords);
   groups = getGroups(word);
@@ -86,10 +93,3 @@ function localSearch(rhymeWords) {
 }
 
 localSearch('搞事情');
-
-module.exports = (rhymeWords) => {
-  let word = transferPinyin(rhymeWords);
-  groups = getGroups(word);
-  return (rmSearch(groups));
-};
-
