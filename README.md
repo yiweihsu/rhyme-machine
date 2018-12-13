@@ -1,4 +1,4 @@
-# Rhyme Machine 1.0.7
+# Rhyme Machine 1.0.8
 Rhyme Machine is designed for Chinese Speaking rappers or any lyrics writers to find awesome rhymes easily. 
 
 # Installation
