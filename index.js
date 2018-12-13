@@ -1,10 +1,10 @@
-const axios = require('axios');
 const _ = require('lodash');
+const axios = require('axios');
+const pinyin = require('pinyin');
+
 const cluster = require('./dict/cluster');
 const dictionary_url =
 	'https://raw.githubusercontent.com/yiweihsu/rhyme-machine/master/dict/phrase';
-
-const pinyin = require('pinyin');
 
 function getPinyinWords(rhyme) {
 	let pinyinWord = pinyin(rhyme, {

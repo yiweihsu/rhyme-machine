@@ -29,7 +29,7 @@ module.exports = {
 		'ya',
 		'za',
 		'zha',
-		'zhua'
+		'zhua',
 	],
 	'1': [
 		'ai',
@@ -55,7 +55,7 @@ module.exports = {
 		'wai',
 		'zai',
 		'zhai',
-		'zhuai'
+		'zhuai',
 	],
 	'2': [
 		'an',
@@ -106,7 +106,7 @@ module.exports = {
 		'zan',
 		'zhan',
 		'zhuan',
-		'zuan'
+		'zuan',
 	],
 	'3': [
 		'ang',
@@ -140,7 +140,7 @@ module.exports = {
 		'yang',
 		'zang',
 		'zhang',
-		'zhuang'
+		'zhuang',
 	],
 	'4': [
 		'ao',
@@ -171,7 +171,7 @@ module.exports = {
 		'xiao',
 		'yao',
 		'zao',
-		'zhao'
+		'zhao',
 	],
 	'5': [
 		'bei',
@@ -189,7 +189,7 @@ module.exports = {
 		'tei',
 		'wei',
 		'zei',
-		'zhei'
+		'zhei',
 	],
 	'6': [
 		'ben',
@@ -209,7 +209,7 @@ module.exports = {
 		'shen',
 		'wen',
 		'zen',
-		'zhen'
+		'zhen',
 	],
 	'7': [
 		'beng',
@@ -231,7 +231,7 @@ module.exports = {
 		'teng',
 		'weng',
 		'zeng',
-		'zheng'
+		'zheng',
 	],
 	'8': [
 		'bi',
@@ -250,7 +250,7 @@ module.exports = {
 		'xi',
 		'xu',
 		'yi',
-		'yu'
+		'yu',
 	],
 	'9': [
 		'bie',
@@ -269,7 +269,7 @@ module.exports = {
 		'xie',
 		'xue',
 		'ye',
-		'yue'
+		'yue',
 	],
 	'10': [
 		'bin',
@@ -282,7 +282,7 @@ module.exports = {
 		'qin',
 		'xin',
 		'xun',
-		'yin'
+		'yin',
 	],
 	'11': [
 		'bing',
@@ -296,7 +296,7 @@ module.exports = {
 		'ting',
 		'xing',
 		'ying',
-		'yun'
+		'yun',
 	],
 	'12': [
 		'bo',
@@ -320,7 +320,7 @@ module.exports = {
 		'wo',
 		'yo',
 		'zhuo',
-		'zuo'
+		'zuo',
 	],
 	'13': [
 		'bu',
@@ -341,7 +341,7 @@ module.exports = {
 		'tu',
 		'wu',
 		'zhu',
-		'zu'
+		'zu',
 	],
 	'14': [
 		'ce',
@@ -359,7 +359,7 @@ module.exports = {
 		'she',
 		'te',
 		'ze',
-		'zhe'
+		'zhe',
 	],
 	'15': ['chi', 'ci', 'ri', 'shi', 'si', 'zhi', 'zi'],
 	'16': [
@@ -379,7 +379,7 @@ module.exports = {
 		'xiong',
 		'yong',
 		'zhong',
-		'zong'
+		'zong',
 	],
 	'17': [
 		'chou',
@@ -399,7 +399,7 @@ module.exports = {
 		'sou',
 		'tou',
 		'zhou',
-		'zou'
+		'zou',
 	],
 	'18': [
 		'chui',
@@ -412,7 +412,7 @@ module.exports = {
 		'sui',
 		'tui',
 		'zhui',
-		'zui'
+		'zui',
 	],
 	'19': [
 		'chun',
@@ -428,8 +428,8 @@ module.exports = {
 		'sun',
 		'tun',
 		'zhun',
-		'zun'
+		'zun',
 	],
 	'20': ['diu', 'jiu', 'liu', 'miu', 'niu', 'qiu', 'xiu', 'you'],
-	'21': ['er']
+	'21': ['er'],
 };
