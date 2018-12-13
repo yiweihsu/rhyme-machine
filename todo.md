@@ -1,13 +1,9 @@
-- lint
-- prettier
 - test
 - request aysnc way
-- dictionary saved as local file
 - offer different tone rhymes options
 - rename the variable name to make it more readable 
 - error handler
-- make a new branch for refactor
-
+- saperate logic from index.js
 
 ### Usage 
 

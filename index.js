@@ -83,16 +83,8 @@ function rmSearch(arr) {
 	});
 }
 
-module.exports = rhymeWords => {
-	let word = transferPinyin(rhymeWords);
-	let groups = getGroups(word);
-	return rmSearch(groups);
-};
-
-function localSearch(rhymeWords) {
+exports.search = function(rhymeWords) {
 	let word = transferPinyin(rhymeWords);
 	let groups = getGroups(word);
 	return rmSearch(groups);
 }
-
-localSearch('搞事情');
