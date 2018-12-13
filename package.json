@@ -13,7 +13,7 @@
     "start": "node index.js",
     "test": "mocha",
     "prettier": "prettier --single-quote --trailing-comma=all --use-tabs --write ./**/*.js",
-    "lint": ".\\node_modules\\.bin\\eslint.cmd",
+    "lint": "./node_modules/.bin/eslint",
     "prepublish": "yarn test"
   },
   "dependencies": {
