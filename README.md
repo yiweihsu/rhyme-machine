@@ -1,25 +1,16 @@
-### 使用方式
+### Usage
 
-1. 輸入韻脚 (rhyme)
-2. 轉換成拼音
-3. 抓出詞組押韻群
-4. 得到韻腳
+```
+const rm = require('rhyme-machine');
 
-### 字典來源
+async function showRM(word) {
+	let data = await rm.search(word);
+	await console.log(data);
+}
+```
+
+### Dictionary Source
 
 https://raw.githubusercontent.com/lqj679ssn/Hiphop/master/Init/phrase3
 https://raw.githubusercontent.com/lqj679ssn/Hiphop/master/Init/phrase_raw
 https://raw.githubusercontent.com/lqj679ssn/Hiphop/master/Init/phrase
-
-### TODO
-
-- write test
-- publish npm
-
----
-
-- 清理字典重複字詞
-- 繁簡轉換
-- 限制至少搜尋兩個字以上
-- 提供四押
-- offer different tone rhymes options
