@@ -1,7 +1,6 @@
 const CLUSTER = require('./dict/cluster');
 const request = require('request');
 
-// 被爬爆了，改成local
 const DICT =
 	'https://raw.githubusercontent.com/yiweihsu/rhyme-machine/master/dict/phrase';
 
@@ -10,7 +9,7 @@ const pinyin = require('pinyin');
 function transferPinyin(word) {
 	let pinyinWord = pinyin(word, {
 		style: pinyin.STYLE_NORMAL, // 设置拼音风格
-		heteronym: false // 多音字
+		heteronym: false, // 多音字
 	});
 	return pinyinWord;
 }
@@ -48,6 +47,8 @@ function getGroups(word) {
 function rmSearch(arr) {
 	let len = arr.length;
 	request(DICT, function(error, response, body) {
+		if (error) throw error;
+
 		let str = body;
 		let list = str.split('\n'); // list is a object
 
@@ -84,13 +85,13 @@ function rmSearch(arr) {
 
 module.exports = rhymeWords => {
 	let word = transferPinyin(rhymeWords);
-	groups = getGroups(word);
+	let groups = getGroups(word);
 	return rmSearch(groups);
 };
 
 function localSearch(rhymeWords) {
 	let word = transferPinyin(rhymeWords);
-	groups = getGroups(word);
+	let groups = getGroups(word);
 	return rmSearch(groups);
 }
 
