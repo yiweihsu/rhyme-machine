@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --single-quote --trailing-comma --use-tabs --write ./*.js",
+    "prettier": "prettier --single-quote --trailing-comma=all --use-tabs --write ./*.js",
     "lint": ".\\node_modules\\.bin\\eslint.cmd",
     "prepublish": ""
   },

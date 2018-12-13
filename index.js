@@ -55,13 +55,11 @@ async function getData(url) {
 	}
 }
 
-
 function dataProcesser(data, groupArr) {
 	let result = [];
 	let len = groupArr.length;
 
 	for (let i in data) {
-		
 		let temp = data[i];
 		let rh1 = getPinyinWords(temp[temp.length - 1]);
 		let rh2 = getPinyinWords(temp[temp.length - 2]);
@@ -74,7 +72,6 @@ function dataProcesser(data, groupArr) {
 				CLUSTER[groupArr['1']].includes(rh2.join()) &&
 				CLUSTER[groupArr['2']].includes(rh3.join())
 			) {
-				console.log(temp);
 				result.push(temp);
 			}
 		}
@@ -85,7 +82,6 @@ function dataProcesser(data, groupArr) {
 				CLUSTER[groupArr[0]].includes(rh1.join()) &&
 				CLUSTER[groupArr[1]].includes(rh2.join())
 			) {
-				console.log(temp);
 				result.push(temp);
 			}
 		}
@@ -104,7 +100,4 @@ exports.search = function search(rhymeWords) {
 	let word = getPinyinWords(rhymeWords);
 	let groups = getGroups(word);
 	return getRhyme(groups);
-}
-
-// for testing
-// exports.search('婊子');
+};
