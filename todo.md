@@ -4,6 +4,7 @@
 - rename the variable name to make it more readable 
 - error handler
 - saperate logic from index.js
+- don't fetch data, but just get data from local file
 
 ### Usage 
 

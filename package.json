@@ -17,6 +17,8 @@
     "prepublish": ""
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.11",
     "pinyin": "^2.8.3",
     "request": "^2.88.0"
   },
