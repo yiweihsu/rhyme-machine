@@ -13,8 +13,13 @@ https://raw.githubusercontent.com/lqj679ssn/Hiphop/master/Init/phrase
 
 ### TODO
 
+- write test
+- publish npm
+
+---
+
 - 清理字典重複字詞
 - 繁簡轉換
 - 限制至少搜尋兩個字以上
-- write test
+- 提供四押
 - offer different tone rhymes options

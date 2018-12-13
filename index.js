@@ -1,6 +1,6 @@
 const axios = require('axios');
 const _ = require('lodash');
-const CLUSTER = require('./dict/cluster');
+const cluster = require('./dict/cluster');
 const dictionary_url =
 	'https://raw.githubusercontent.com/yiweihsu/rhyme-machine/master/dict/phrase';
 
@@ -26,15 +26,15 @@ function getGroups(word) {
 	}
 
 	// check if the word belong to the group
-	for (let group in CLUSTER) {
-		if (CLUSTER[group].includes(last1Str)) {
+	for (let group in cluster) {
+		if (cluster[group].includes(last1Str)) {
 			groupArr['0'] = group;
 		}
-		if (CLUSTER[group].includes(last2Str)) {
+		if (cluster[group].includes(last2Str)) {
 			groupArr['1'] = group;
 		}
 		if (word.length > 2) {
-			if (CLUSTER[group].includes(last3Str)) {
+			if (cluster[group].includes(last3Str)) {
 				groupArr['2'] = group;
 			}
 		}
@@ -68,9 +68,9 @@ function dataProcesser(data, groupArr) {
 		// 三韻
 		if (len === 3) {
 			if (
-				CLUSTER[groupArr['0']].includes(rh1.join()) &&
-				CLUSTER[groupArr['1']].includes(rh2.join()) &&
-				CLUSTER[groupArr['2']].includes(rh3.join())
+				cluster[groupArr['0']].includes(rh1.join()) &&
+				cluster[groupArr['1']].includes(rh2.join()) &&
+				cluster[groupArr['2']].includes(rh3.join())
 			) {
 				result.push(temp);
 			}
@@ -79,8 +79,8 @@ function dataProcesser(data, groupArr) {
 		// 雙韻
 		if (len === 2) {
 			if (
-				CLUSTER[groupArr[0]].includes(rh1.join()) &&
-				CLUSTER[groupArr[1]].includes(rh2.join())
+				cluster[groupArr[0]].includes(rh1.join()) &&
+				cluster[groupArr[1]].includes(rh2.join())
 			) {
 				result.push(temp);
 			}
