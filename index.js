@@ -39,8 +39,8 @@ function getGroups(word) {
 				arr['2'] = group;
 			}
 		}
-  }
-  
+	}
+
 	return arr;
 }
 
@@ -52,8 +52,8 @@ function rmSearch(arr) {
 		let list = str.split('\n'); // list is a object
 
 		for (let i in list) {
-      let temp = list[i];
-      
+			let temp = list[i];
+
 			let rh1 = transferPinyin(temp[temp.length - 1]);
 			let rh2 = transferPinyin(temp[temp.length - 2]);
 			let rh3 = transferPinyin(temp[temp.length - 3]);
