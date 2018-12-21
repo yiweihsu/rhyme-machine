@@ -17,13 +17,13 @@ $ yarn add rhyme-machine
 ```
 const rhymeMachine = require('rhyme-machine');
 
-async function logRM(word) {
-	let data = await rm.search(word);
+async function getRhyme(word) {
+	let data = await rhymeMachine.search(word);
 	await console.log(data);
 }
 
 const rhyme = '韻腳';
-logRM(rhyme);
+getRhyme(rhyme);
 ```
 
 # Dictionary Resources
