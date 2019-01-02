@@ -13,8 +13,7 @@
     "start": "node index.js",
     "test": "mocha",
     "prettier": "prettier --single-quote --trailing-comma=all --use-tabs --write ./**/*.js",
-    "lint": "./node_modules/.bin/eslint",
-    "prepublish": "yarn test"
+    "lint": "./node_modules/.bin/eslint"
   },
   "dependencies": {
     "axios": "^0.18.0",
