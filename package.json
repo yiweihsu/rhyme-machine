@@ -1,6 +1,6 @@
 {
   "name": "rhyme-machine",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "to help rappers have a easier rhyme life",
   "repository": {
     "type": "git",
@@ -13,7 +13,8 @@
     "start": "node index.js",
     "test": "mocha",
     "prettier": "prettier --single-quote --trailing-comma=all --use-tabs --write ./**/*.js",
-    "lint": "./node_modules/.bin/eslint"
+    "lint": "./node_modules/.bin/eslint",
+    "prepublish": "yarn test"
   },
   "dependencies": {
     "axios": "^0.18.0",

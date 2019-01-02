@@ -1,4 +1,4 @@
-# Rhyme Machine 1.0.10
+# Rhyme Machine 1.0.11
 Rhyme Machine is designed for Chinese speaking rappers or lyrics writers to get some rhymes inspiration 
 
 ## Getting Started
@@ -18,7 +18,7 @@ with npm
 npm install rhyme-machine
 ```
 
-wiht yarn
+with yarn
 ```
 $ yarn add rhyme-machine
 ```
