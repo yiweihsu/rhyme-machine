@@ -20,7 +20,7 @@ npm install rhyme-machine
 
 with yarn
 ```
-$ yarn add rhyme-machine
+yarn add rhyme-machine
 ```
 
 ## Running the tests
