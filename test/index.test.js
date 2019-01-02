@@ -1,11 +1,13 @@
 const assert = require('assert');
-const rewire = require('rewire');
 
 // using rewire to get into private resources
-const userRewire = rewire('.././index.js');
-const getPinyinWords = userRewire.__get__('getPinyinWords');
-const getGroups = userRewire.__get__('getGroups');
-const dataProcesser = userRewire.__get__('dataProcesser');
+const rewire = require('rewire');
+const RMrewire = rewire('.././index.js');
+const getPinyinWords = RMrewire.__get__('getPinyinWords');
+const getClusterGroups = RMrewire.__get__('getClusterGroups');
+const getRhymes = RMrewire.__get__('getRhymes');
+
+const rm = require('../index');
 
 const rhymeWords = '測試';
 
@@ -15,14 +17,21 @@ describe('getPinyinWords()', () => {
 	});
 });
 
-describe('getGroups()', () => {
+describe('getClusterGroups()', () => {
 	it('returns an object as data', () => {
-		assert.equal('object', typeof getGroups(getPinyinWords(rhymeWords)));
+		assert.equal('object', typeof getClusterGroups(getPinyinWords(rhymeWords)));
 	});
 });
 
-describe('getData()', () => {
+describe('getDictDataByUrl()', () => {
 	it('returns an object as data', () => {
-		assert.strictEqual('object', typeof dataProcesser('url', 1));
+		assert.strictEqual('object', typeof getRhymes('url', 1));
+	});
+});
+
+describe('search()', () => {
+	it('returns rhymes', () => {
+		assert.equal('object', typeof rm.search(rhymeWords));
+		// TODO test if value is equal
 	});
 });

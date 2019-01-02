@@ -8,18 +8,18 @@ const dictionary_url =
 
 function getPinyinWords(rhyme) {
 	let pinyinWord = pinyin(rhyme, {
-		style: pinyin.STYLE_NORMAL, // 设置拼音风格
-		heteronym: false, // 多音字
+		style: pinyin.STYLE_NORMAL, 	// 設置拼音風格
+		heteronym: false 				// 多音字
 	});
 	return pinyinWord;
 }
 
-function getGroups(word) {
+function getClusterGroups(word) {
 	let groupArr = [];
 
-	let last1Str = word[word.length - 1].join(); // 最後一個字
-	let last2Str = word[word.length - 2].join(); // 倒數第二個字
-	let last3Str; // 倒數第三個字
+	let last1Str = word[word.length - 1].join();	// 最後一個字
+	let last2Str = word[word.length - 2].join();	// 倒數第二個字
+	let last3Str;									// 倒數第三個字
 
 	if (word.length > 2) {
 		last3Str = word[word.length - 3].join();
@@ -42,7 +42,7 @@ function getGroups(word) {
 	return groupArr;
 }
 
-async function getData(url) {
+async function getDictDataByUrl(url) {
 	try {
 		let response = await axios.get(url);
 		let data = response.data;
@@ -55,7 +55,7 @@ async function getData(url) {
 	}
 }
 
-function dataProcesser(data, groupArr) {
+function getRhymes(data, groupArr) {
 	let result = [];
 	let len = groupArr.length;
 
@@ -86,18 +86,15 @@ function dataProcesser(data, groupArr) {
 			}
 		}
 	}
-
 	return result;
 }
 
-async function getRhyme(grouArr) {
-	let data = await getData(dictionary_url);
-	let result = await dataProcesser(data, grouArr);
+exports.search = async function search(rhymeWords) {
+	let word = await getPinyinWords(rhymeWords);
+	let grouArr = await getClusterGroups(word);
+	let data = await getDictDataByUrl(dictionary_url);
+	let result = await getRhymes(data, grouArr);
 	return result;
-}
-
-exports.search = function search(rhymeWords) {
-	let word = getPinyinWords(rhymeWords);
-	let groups = getGroups(word);
-	return getRhyme(groups);
 };
+
+// exports.search('暴力');
