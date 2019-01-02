@@ -55,9 +55,3 @@ yiweihsutw@gmail.com
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
-
-## Dictionary Resources
-
-https://raw.githubusercontent.com/lqj679ssn/Hiphop/master/Init/phrase3
-https://raw.githubusercontent.com/lqj679ssn/Hiphop/master/Init/phrase_raw
-https://raw.githubusercontent.com/lqj679ssn/Hiphop/master/Init/phrase
