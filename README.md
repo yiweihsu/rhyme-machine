@@ -31,16 +31,18 @@ yarn run test
 
 ## Usage Example 
 
+It's required to use async function along with the module. An usage example can be refered as below:
+
 ```
 const rhymeMachine = require('rhyme-machine');
 
 async function getRhyme(word) {
-	let data = await rhymeMachine.search(word);
-	await console.log(data);
+  let result = await rhymeMachine.search(word);
+  // doing something with the result here
+  // console.log(result);
 }
 
-const rhyme = '韻腳';
-getRhyme(rhyme);
+getRhyme('韻腳');
 ```
 
 ## Versioning
@@ -49,7 +51,7 @@ See [npm](https://www.npmjs.com/package/rhyme-machine) page for versions details
 
 ## Authors
 
-Yi-Wei Hsu
+Yi-Wei Hsu    
 yiweihsutw@gmail.com
 
 ## License
