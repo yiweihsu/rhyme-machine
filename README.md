@@ -23,6 +23,12 @@ wiht yarn
 $ yarn add rhyme-machine
 ```
 
+## Running the tests
+
+```
+yarn run test
+```
+
 ## Usage Example 
 
 ```
