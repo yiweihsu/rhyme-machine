@@ -8,8 +8,8 @@ const dictionary_url =
 
 function getPinyinWords(rhyme) {
 	let pinyinWord = pinyin(rhyme, {
-		style: pinyin.STYLE_NORMAL, 	// 設置拼音風格
-		heteronym: false 				// 多音字
+		style: pinyin.STYLE_NORMAL, // 設置拼音風格
+		heteronym: false, // 多音字
 	});
 	return pinyinWord;
 }
@@ -17,9 +17,9 @@ function getPinyinWords(rhyme) {
 function getClusterGroups(word) {
 	let groupArr = [];
 
-	let last1Str = word[word.length - 1].join();	// 最後一個字
-	let last2Str = word[word.length - 2].join();	// 倒數第二個字
-	let last3Str;									// 倒數第三個字
+	let last1Str = word[word.length - 1].join(); // 最後一個字
+	let last2Str = word[word.length - 2].join(); // 倒數第二個字
+	let last3Str; // 倒數第三個字
 
 	if (word.length > 2) {
 		last3Str = word[word.length - 3].join();
