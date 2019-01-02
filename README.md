@@ -1,18 +1,29 @@
 # Rhyme Machine 1.0.8
-Rhyme Machine is designed for Chinese Speaking rappers or any lyrics writers to find awesome rhymes easily. 
+Rhyme Machine is designed for Chinese speaking rappers or lyrics writers to get some rhymes inspiration 
 
-# Installation
+## Getting Started
 
-You can install with npm: 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes
+
+### Prerequisites
+
 ```
-$ npm install rhyme-machine
+node^10.0.0
 ```
-or
+
+### Installing
+
+with npm 
+```
+npm install rhyme-machine
+```
+
+wiht yarn
 ```
 $ yarn add rhyme-machine
 ```
 
-# Usage Example 
+## Usage Example 
 
 ```
 const rhymeMachine = require('rhyme-machine');
@@ -26,7 +37,20 @@ const rhyme = '韻腳';
 getRhyme(rhyme);
 ```
 
-# Dictionary Resources
+## Versioning
+
+See [npm](https://www.npmjs.com/package/rhyme-machine) page for versions details.
+
+## Authors
+
+Yi-Wei Hsu
+yiweihsutw@gmail.com
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Dictionary Resources
 
 https://raw.githubusercontent.com/lqj679ssn/Hiphop/master/Init/phrase3
 https://raw.githubusercontent.com/lqj679ssn/Hiphop/master/Init/phrase_raw
