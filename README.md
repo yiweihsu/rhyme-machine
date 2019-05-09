@@ -13,36 +13,21 @@ node^10.0.0
 
 ### Installing
 
-with npm 
 ```
 npm install rhyme-machine
-```
-
-with yarn
-```
-yarn add rhyme-machine
 ```
 
 ## Running the tests
 
 ```
-yarn run test
+npm run test
 ```
 
 ## Usage Example 
 
-It's required to use async function along with the module. An usage example can be refered as below:
-
 ```
-const rhymeMachine = require('rhyme-machine');
-
-async function getRhyme(word) {
-  let result = await rhymeMachine.search(word);
-  // doing something with the result here
-  // console.log(result);
-}
-
-getRhyme('韻腳');
+const rhymeMachine = require('rhyme-machine')
+rhymeMachine.search('韻腳')
 ```
 
 ## Versioning

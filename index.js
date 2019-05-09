@@ -6,35 +6,34 @@ const cluster = require('./dict/cluster')
 const dictionaryURL = 'https://raw.githubusercontent.com/yiweihsu/rhyme-machine/master/dict/phrase'
 
 const getPinyinWords = (rhyme) => {
-  const pinyinWord = pinyin(rhyme, {
+  return pinyin(rhyme, {
     style: pinyin.STYLE_NORMAL,
     heteronym: false
   })
-  return pinyinWord
 }
 
 const getClusterGroups = (word) => {
   const groupArr = []
 
-  const last1Str = word[word.length - 1].join() // 最後一個字
-  const last2Str = word[word.length - 2].join() // 倒數第二個字
-  let last3Str // 倒數第三個字
+  const lastChar = word[word.length - 1].join()
+  const secondLastChar = word[word.length - 2].join()
+  let thirdLastChar
 
   if (word.length > 2) {
-    last3Str = word[word.length - 3].join()
+    thirdLastChar = word[word.length - 3].join()
   }
 
   // check if the word belongs to the group
   for (const group in cluster) {
-    if (cluster[group].includes(last1Str)) {
-      groupArr['0'] = group
+    if (cluster[group].includes(lastChar)) {
+      groupArr[0] = group
     }
-    if (cluster[group].includes(last2Str)) {
-      groupArr['1'] = group
+    if (cluster[group].includes(secondLastChar)) {
+      groupArr[1] = group
     }
     if (word.length > 2) {
-      if (cluster[group].includes(last3Str)) {
-        groupArr['2'] = group
+      if (cluster[group].includes(thirdLastChar)) {
+        groupArr[2] = group
       }
     }
   }
@@ -67,7 +66,7 @@ const getRhymes = (data, groupArr) => {
     // 三韻
     if (len === 3) {
       if (
-        cluster[groupArr['0']].includes(rh1.join()) && cluster[groupArr['1']].includes(rh2.join()) && cluster[groupArr['2']].includes(rh3.join())
+        cluster[groupArr[0]].includes(rh1.join()) && cluster[groupArr[1]].includes(rh2.join()) && cluster[groupArr[2]].includes(rh3.join())
       ) {
         result.push(temp)
       }
@@ -93,4 +92,4 @@ exports.search = async function search (rhymeWords) {
   return result
 }
 
-// exports.search('暴力')
+exports.search('暴力狂')
