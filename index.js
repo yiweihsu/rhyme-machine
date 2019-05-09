@@ -92,4 +92,4 @@ exports.search = async function search (rhymeWords) {
   return result
 }
 
-exports.search('暴力狂')
+// exports.search('暴力狂')
