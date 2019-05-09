@@ -30,7 +30,6 @@ describe('Rhyme machine testing', () => {
   describe('search()', () => {
     it('returns rhymes', () => {
       assert.strict.equal('object', typeof rm.search(rhymeWords))
-      // TODO test if value is equal
     })
   })
 })
