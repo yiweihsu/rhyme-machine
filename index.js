@@ -1,3 +1,6 @@
+const fs = require('fs')
+const path = require('path')
+
 const _ = require('lodash')
 const axios = require('axios')
 const pinyin = require('pinyin')
@@ -8,7 +11,7 @@ const dictionaryURL = 'https://raw.githubusercontent.com/yiweihsu/rhyme-machine/
 const getPinyinWords = (rhyme) => {
   return pinyin(rhyme, {
     style: pinyin.STYLE_NORMAL,
-    heteronym: false
+    heteronym: false,
   })
 }
 
@@ -53,6 +56,19 @@ const getDictDataByUrl = async (url) => {
   }
 }
 
+// TODO
+const readDict = () => {
+  const filePath = path.join(__dirname, './dict/phrase')
+
+  fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
+    if (!err) {
+      console.log('received data: ' + data)
+    } else {
+      console.log(err)
+    }
+  })
+}
+
 const getRhymes = (data, groupArr) => {
   const result = []
   const len = groupArr.length
@@ -84,7 +100,7 @@ const getRhymes = (data, groupArr) => {
   return result
 }
 
-exports.search = async function search (rhymeWords) {
+exports.search = async function search(rhymeWords) {
   const word = await getPinyinWords(rhymeWords)
   const grouArr = await getClusterGroups(word)
   const data = await getDictDataByUrl(dictionaryURL)
@@ -93,3 +109,5 @@ exports.search = async function search (rhymeWords) {
 }
 
 // exports.search('暴力狂')
+
+readDict()
