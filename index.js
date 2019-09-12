@@ -1,10 +1,6 @@
-const fs = require('fs')
-const path = require('path')
-const _ = require('lodash')
-
 const pinyin = require('pinyin')
 const cluster = require('./dict/cluster')
-
+const dictionary = require('./dict/data.json')
 
 const getPinyinWords = (rhyme) => {
   return pinyin(rhyme, {
@@ -39,23 +35,6 @@ const getClusterGroups = (word) => {
     }
   }
   return groupArr
-}
-
-const readDict = () => {
-  const filePath = path.join(__dirname, './dict/phrase')
-
-  return new Promise((resolve, reject) => {
-    fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
-      if (!err) {
-        const arr1 = data.split(' ')[0].split('\n')
-        const arr2 = data.split(' ')[1].split('\n')
-        const result = _.concat(arr1, arr2)
-        resolve(result)
-      } else {
-        reject(err)
-      }
-    })
-  })
 }
 
 const getRhymes = (data, groupArr) => {
@@ -94,9 +73,6 @@ const getRhymes = (data, groupArr) => {
 exports.search = async function search(rhymeWords) {
   const word = await getPinyinWords(rhymeWords)
   const grouArr = await getClusterGroups(word)
-  const data = await readDict()
-  const result = await getRhymes(data, grouArr)
+  const result = await getRhymes(dictionary, grouArr)
   return result
 }
-
-
