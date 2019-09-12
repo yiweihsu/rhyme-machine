@@ -1,12 +1,10 @@
 const fs = require('fs')
 const path = require('path')
-
 const _ = require('lodash')
-const axios = require('axios')
-const pinyin = require('pinyin')
 
+const pinyin = require('pinyin')
 const cluster = require('./dict/cluster')
-const dictionaryURL = 'https://raw.githubusercontent.com/yiweihsu/rhyme-machine/master/dict/phrase'
+
 
 const getPinyinWords = (rhyme) => {
   return pinyin(rhyme, {
@@ -43,29 +41,20 @@ const getClusterGroups = (word) => {
   return groupArr
 }
 
-const getDictDataByUrl = async (url) => {
-  try {
-    const response = await axios.get(url)
-    const data = response.data
-    const arr1 = data.split(' ')[0].split('\n')
-    const arr2 = data.split(' ')[1].split('\n')
-    const result = _.concat(arr1, arr2)
-    return result
-  } catch (error) {
-    throw error
-  }
-}
-
-// TODO
 const readDict = () => {
   const filePath = path.join(__dirname, './dict/phrase')
 
-  fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
-    if (!err) {
-      console.log('received data: ' + data)
-    } else {
-      console.log(err)
-    }
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) => {
+      if (!err) {
+        const arr1 = data.split(' ')[0].split('\n')
+        const arr2 = data.split(' ')[1].split('\n')
+        const result = _.concat(arr1, arr2)
+        resolve(result)
+      } else {
+        reject(err)
+      }
+    })
   })
 }
 
@@ -84,6 +73,7 @@ const getRhymes = (data, groupArr) => {
       if (
         cluster[groupArr[0]].includes(rh1.join()) && cluster[groupArr[1]].includes(rh2.join()) && cluster[groupArr[2]].includes(rh3.join())
       ) {
+        console.log(temp)
         result.push(temp)
       }
     }
@@ -97,17 +87,16 @@ const getRhymes = (data, groupArr) => {
       }
     }
   }
+
   return result
 }
 
 exports.search = async function search(rhymeWords) {
   const word = await getPinyinWords(rhymeWords)
   const grouArr = await getClusterGroups(word)
-  const data = await getDictDataByUrl(dictionaryURL)
+  const data = await readDict()
   const result = await getRhymes(data, grouArr)
   return result
 }
 
-// exports.search('暴力狂')
 
-readDict()
