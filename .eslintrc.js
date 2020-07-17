@@ -4,15 +4,28 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
-  extends: "google",
+  extends: 'google',
   globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
     ecmaVersion: 2018,
+    sourceType: 'module',
   },
   rules: {
-    semi: [2, "never"],
+    'object-curly-spacing': ['error', 'always'],
   },
+  'require-jsdoc': [
+    'error',
+    {
+      require: {
+        FunctionDeclaration: false,
+        MethodDefinition: false,
+        ClassDeclaration: false,
+        ArrowFunctionExpression: false,
+        FunctionExpression: false,
+      },
+    },
+  ],
 };
