@@ -1,9 +1,9 @@
 import pinyin from 'pinyin';
 import cluster from '../dict/cluster';
 
-export const getPinyinWords = async (rhyme) => {
+export const getPinyinWords = async (rhyme, pinyinStyle) => {
   return pinyin(rhyme, {
-    style: pinyin.STYLE_NORMAL,
+    style: pinyin[pinyinStyle] || pinyin.STYLE_NORMAL,
     heteronym: false,
   });
 };

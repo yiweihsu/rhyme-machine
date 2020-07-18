@@ -1,0 +1,13 @@
+{
+{"id":0,"word":"一丁不識","pinyin":["yi","ding","bu","shi"],"group":[8,11,13,15],"tone":["yi1","ding1","bu4","shi2"]},
+{"id":1,"word":"一丁點","pinyin":["yi","ding","dian"],"group":[8,11,2],"tone":["yi1","ding1","dian3"]},
+{"id":2,"word":"一丈差九尺","pinyin":["yi","zhang","cha","jiu","chi"],"group":[8,3,0,20,15],"tone":["yi1","zhang4","cha4","jiu3","chi3"]},
+{"id":3,"word":"一丈青","pinyin":["yi","zhang","qing"],"group":[8,3,11],"tone":["yi1","zhang4","qing1"]},
+{"id":4,"word":"一上","pinyin":["yi","shang"],"group":[8,3],"tone":["yi1","shang4"]},
+{"id":5,"word":"一下","pinyin":["yi","xia"],"group":[8,0],"tone":["yi1","xia4"]},
+{"id":6,"word":"一下子","pinyin":["yi","xia","zi"],"group":[8,0,15],"tone":["yi1","xia4","zi3"]},
+{"id":7,"word":"一不做，二不休","pinyin":["yi","bu","zuo","，","er","bu","xiu"],"group":[8,13,12,null,21,13,20],"tone":["yi1","bu4","zuo4","，","er4","bu4","xiu1"]},
+{"id":8,"word":"一不小心","pinyin":["yi","bu","xiao","xin"],"group":[8,13,4,10],"tone":["yi1","bu4","xiao3","xin1"]},
+{"id":9,"word":"一不扭眾","pinyin":["yi","bu","niu","zhong"],"group":[8,13,20,16],"tone":["yi1","bu4","niu3","zhong4"]},
+{"id":10,"word":"一不拗眾","pinyin":["yi","bu","ao","zhong"],"group":[8,13,4,16],"tone":["yi1","bu4","ao3","zhong4"]},
+}

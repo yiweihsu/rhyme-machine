@@ -8,5 +8,3 @@ export async function searchRhymes(rhymeWords) {
 
   return result;
 }
-
-console.log(searchRhymes('前面的'));
