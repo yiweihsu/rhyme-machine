@@ -1,10 +1,19 @@
 import fs from 'fs';
+import pinyin from 'pinyin';
+
+import cluster from './cluster';
 import testDict from './testData.json';
 import dict from './data.json';
-import cluster from './cluster';
-import { getPinyinWords, getClusterGroups } from '../src/utils';
 
 const FILE_PATH = './dict/data.post.json';
+const RHYME_DATA = testDict;
+
+const getPinyinWords = async (rhyme, pinyinStyle) => {
+  return pinyin(rhyme, {
+    style: pinyin[pinyinStyle] || pinyin.STYLE_NORMAL,
+    heteronym: false,
+  });
+};
 
 const getWordPinyin = async (word) => {
   const wordPinyin = await getPinyinWords(word);
@@ -38,9 +47,9 @@ const deleteOldData = async (filePath) => {
 
 const dataProcessor = async () => {
   deleteOldData(FILE_PATH);
-  fs.appendFileSync(FILE_PATH, '{\n', 'utf-8');
+  fs.appendFileSync(FILE_PATH, '[\n', 'utf-8');
   await Promise.all(
-    testDict.map(async (word, index) => {
+    RHYME_DATA.map(async (word, index) => {
       const wordPinyin = await getWordPinyin(word);
       const tone = await getWordTone(word);
       const group = wordPinyin.map((pinyinWord) => {
@@ -54,14 +63,21 @@ const dataProcessor = async () => {
         group,
         tone,
       };
+
       fs.appendFileSync(
         FILE_PATH,
-        JSON.stringify(processedWord) + ',\n',
+        JSON.stringify(processedWord) +
+          (index === RHYME_DATA.length - 1 ? '\n' : ',\n'),
         'utf-8'
       );
+      console.log(`${index} rhyme(s) loaded......`);
     })
   );
-  fs.appendFileSync(FILE_PATH, '}\n', 'utf-8');
+  fs.appendFileSync(FILE_PATH, ']\n', 'utf-8');
 };
 
-dataProcessor();
+try {
+  dataProcessor();
+} catch (err) {
+  console.error(err);
+}
